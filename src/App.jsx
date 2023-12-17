@@ -27,3 +27,6 @@ function App() {
 }
 
 export default App;
+
+
+// Path: BISp/src/pages/Home.jsx
