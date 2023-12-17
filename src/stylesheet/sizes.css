@@ -31,3 +31,7 @@
 .text-xl{
     font-size: 20px;
 }
+
+.border{
+    border-width: 1px;
+}

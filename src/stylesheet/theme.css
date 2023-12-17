@@ -10,13 +10,27 @@
 .bg-secondary{
     background-color: var(--color-secondary);
 }
+.bg-white{
+    background-color: #fff;
+}
+.bg-black{
+    background-color: black;
+}
 
 .text-primary{
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 
 .text-secondary{
     color: var(--color-secondary);
+}
+
+.text-black{
+    color:black;
+}
+
+.text-white{
+    color: white;
 }
 
 .border-primary{
