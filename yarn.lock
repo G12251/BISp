@@ -2947,6 +2947,11 @@ regexp.prototype.flags@^1.5.0, regexp.prototype.flags@^1.5.1:
     define-properties "^1.2.0"
     set-function-name "^2.0.0"
 
+remixicon@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/remixicon/-/remixicon-4.0.1.tgz"
+  integrity sha512-Apa13Q01mFIuQEMvSVni8NnF9cV0vud9YXb2prQ+g3jmWpxKoFCL+yIiQ+9JCeLptdGKyoqVjCYOwwBQVHdciQ==
+
 reselect@^5.0.1:
   version "5.1.0"
   resolved "https://registry.npmjs.org/reselect/-/reselect-5.1.0.tgz"

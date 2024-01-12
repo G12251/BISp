@@ -23,7 +23,7 @@ function ProtectedRoute({ children }) {
         message.error(response.message);
       }
     } catch (error) {
-      dispatch(HideLoading())
+      dispatch(HideLoading());
       dispatch(SetUser(null));
       message.error(error.message);
     }
@@ -40,8 +40,27 @@ function ProtectedRoute({ children }) {
   return (
     user && (
       <div>
-        {user.name}
-        {children}
+        <div className="layout p-1 ">
+          <div className="header bg-primary flex justify-between p-2">
+            <div>
+              <h1 className="text-2xl text-white">BOOKSEAT</h1>
+            </div>
+
+            <div className="bg-white p-1 flex gap-1">
+              <i className="ri-user-3-line"></i>
+              <h1 className="text-sm text-primary">{user.name}</h1>
+
+              <i
+                className="ri-logout-circle-r-line ml-1"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  navigate("/login");
+                }}
+              ></i>
+            </div>
+          </div>
+          <div className="content mt-1 p-1 ">{children}</div>
+        </div>
       </div>
     )
   );
