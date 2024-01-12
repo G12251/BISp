@@ -1,11 +1,21 @@
 import React from "react";
-import { Form, Input } from "antd"; // Import necessary components from Ant Design
+import { Form, Input, message } from "antd"; // Import necessary components from Ant Design
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { registerUser } from "../../apicalls/users";
 
 function Register() {
-  const onFinish = (values) => {
-    console.log("Success", values);
+  const onFinish = async (values) => {
+    try {
+      const response = await registerUser(values);
+      if (response.success) {
+        message.success(response.message);
+      } else {
+        message.error(response.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
   };
   return (
     <div className="flex justify-center h-screen items-center bg-primary">
