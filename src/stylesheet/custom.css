@@ -13,6 +13,11 @@
   border: 1px solid #b1b1b1;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
+
 /* loader */
 
 .loader-parent {
@@ -37,6 +42,8 @@
 
 }
 
+
+
 /* Loader animation */
 
 @keyframes loader-anim {
@@ -47,3 +54,4 @@
     transform: rotate(360deg);
   }
 }
+

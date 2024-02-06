@@ -1,7 +1,8 @@
-import { axiosInstance } from "./index";
+// const { axiosInstance } = require(".");
+import { axiosInstance } from ".";
 
 // Register a new user
-export const registerUser = async (payload) => {
+export const RegisterUser = async (payload) => {
   try {
     const response = await axiosInstance.post(
       "http://localhost:5000/api/users/register",
@@ -14,7 +15,7 @@ export const registerUser = async (payload) => {
 };
 
 // Login a user
-export const loginUser = async (payload) => {
+export const LoginUser = async (payload) => {
   try {
     const response = await axiosInstance.post(
       "http://localhost:5000/api/users/login",

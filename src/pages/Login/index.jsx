@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
-import { Form, Input, message } from "antd"; // Import necessary components from Ant Design
+import { Form, message } from "antd";
 import Button from "../../components/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../apicalls/users";
+import { LoginUser } from "../../apicalls/users";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onFinish = async (values) => {
     try {
       dispatch(ShowLoading())
-      const response = await loginUser(values);
+      const response = await LoginUser(values);
       dispatch(HideLoading())
       if (response.success) {
         message.success(response.message);
@@ -36,28 +36,25 @@ function Login() {
   return (
     <div className="flex justify-center h-screen items-center bg-primary">
       <div className="card p-3 w-400">
-        <h1 className="text-xl mb-1">BookMovie - LOGIN</h1>
+        <h1 className="text-xl mb-1">BOOKSEAT - LOGIN</h1>
         <hr />
         <Form layout="vertical" className="mt-1" onFinish={onFinish}>
           <Form.Item
             label="Email"
             name="email"
-            required
-            rules={[{ required: true, message: "Please enter your email!" }]}
+            rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input type="email" />
+            <input type="email" />
           </Form.Item>
-
           <Form.Item
             label="Password"
             name="password"
-            required
-            rules={[{ required: true, message: "Please enter your password!" }]}
+            rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input type="password" />
+            <input type="password" />
           </Form.Item>
 
-          <div className="flex flex-column mt-2 gap-1">
+          <div className="flex flex-col mt-2 gap-1">
             <Button fullWidth title="LOGIN" type="submit" />
             <Link to="/register" className="text-primary">
               {" "}
@@ -70,4 +67,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
