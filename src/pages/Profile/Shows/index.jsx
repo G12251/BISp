@@ -64,6 +64,10 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
   };
 
   const handleDelete = async (id) => {
+    const isConfirmed = window.confirm("Do you want to delete this show?");
+    if (!isConfirmed) {
+      return; // If user cancels, do nothing
+    }
     try {
       dispatch(ShowLoading());
       const response = await DeleteShow({ showId: id });
@@ -85,6 +89,8 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
     {
       title: "Show Name",
       dataIndex: "name",
+      key: "name",
+
     },
     {
       title: "Date",
@@ -92,10 +98,12 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
       render: (text, record) => {
         return moment(text).format("MMM Do YYYY");
       },
+      key: "date",
     },
     {
       title: "Time",
       dataIndex: "time",
+      key: "time",
     },
     {
       title: "Movie",
@@ -103,14 +111,17 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
       render: (text, record) => {
         return record.movie.title;
       },
+      key: "movie",
     },
     {
       title: "Ticket Price",
       dataIndex: "ticketPrice",
+      key: "ticketPrice",
     },
     {
       title: "Total Seats",
       dataIndex: "totalSeats",
+      key: "totalSeats",
     },
     {
       title: "Available Seats",
@@ -118,6 +129,7 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
       render: (text, record) => {
         return record.totalSeats - record.bookedSeats.length;
       },
+      key: "availableSeats",
     },
     {
       title: "Action",
@@ -127,7 +139,7 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
           <div className="flex gap-1 items-center">
             {record.bookedSeats.length === 0 && (
               <i
-                className="ri-delete-bin-line"
+                className="ri-delete-bin-line cursor-pointer"
                 onClick={() => {
                   handleDelete(record._id);
                 }}
@@ -135,7 +147,8 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
             )}
           </div>
         );
-      },
+      }, 
+      key: "action",
     },
   ];
 
@@ -216,8 +229,10 @@ function Shows({ openShowsModal, setOpenShowsModal, cinema }) {
               >
                 <select>
                   <option value="">Select Movie</option>
-                  {movies.map((movie) => (
-                    <option value={movie._id}>{movie.title}</option>
+                  {movies.map((movie, index) => (
+                    <option key={index} value={movie._id}>
+                      {movie.title}
+                    </option>
                   ))}
                 </select>
               </Form.Item>

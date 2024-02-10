@@ -1,7 +1,7 @@
 import React from "react";
 
 function Button({ title, onClick, variant, disabled, fullWidth, type }) {
-  let className = "bg-primary p-1 text-white";
+  let className = "bg-primary p-1 text-white cursor-pointer";
 
   if (fullWidth) {
     className += " w-full";

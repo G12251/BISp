@@ -70,7 +70,7 @@ function MovieForm({
 
           <Col span={24}>
             <Form.Item label="Movie Description" name="description">
-              <textarea type="text" />
+              <textarea type="text" style={{ width: '100%', height:'100px', padding:'7px' }} />
             </Form.Item>
           </Col>
 
@@ -80,9 +80,9 @@ function MovieForm({
             </Form.Item>
           </Col>
 
-          <Col span={8}>
-            <Form.Item label="Language" name="language">
-              <select name="" id="">
+          <Col span={8} >
+            <Form.Item label="Language" name="language" >
+              <select name="" id="" style={{ width: '100%', height:'39px',  borderRadius: '5px' }}>
                 <option value="">Select Language</option>
                 <option value="English">English</option>
                 <option value="Russian">Russian</option>
@@ -101,8 +101,8 @@ function MovieForm({
           </Col>
 
           <Col span={8}>
-            <Form.Item label="Genre" name="genre">
-              <select name="" id="">
+            <Form.Item label="Genre" name="genre" >
+              <select name="" id="" style={{ width: '100%', height:'39px',  borderRadius: '5px' }}>
                 <option value="">Select Genre</option>
                 <option value="Action">Action</option>
                 <option value="Comedy">Comedy</option>

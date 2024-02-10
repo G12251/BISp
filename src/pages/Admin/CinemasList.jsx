@@ -72,7 +72,7 @@ function CinemasList() {
       title: "Owner",
       dataIndex: "owner",
       render: (text, record) => {
-        return record.owner.name;
+        return record.owner ? record.owner.name : "Unknown";
       },
     },
     {

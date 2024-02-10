@@ -14,8 +14,7 @@ import Shows from "./Shows";
 
 function CinemasList() {
   const { user } = useSelector((state) => state.users);
-  const [showCinemaFormModal, setShowCinemaFormModal] =
-    useState(false);
+  const [showCinemaFormModal, setShowCinemaFormModal] = useState(false);
   const [selectedCinema, setSelectedCinema] = useState(null);
   const [formType, setFormType] = useState("add");
   const [cinemas, setCinemas] = useState([]);
@@ -30,11 +29,13 @@ function CinemasList() {
       dispatch(ShowLoading());
       const response = await GetAllCinemasByOwner({
         owner: user._id,
+        key: user.id,
       });
       if (response.success) {
         const data = response.data.map((cinema) => {
           return {
             ...cinema,
+            cinemaId: cinema._id,
             key: cinema._id,
           };
         });
@@ -51,6 +52,11 @@ function CinemasList() {
 
   const handleDelete = async (id) => {
     try {
+      const isConfirmed = window.confirm("Do you want to delete this cinema?");
+      if (!isConfirmed) {
+        return; // If user cancels, do nothing
+      }
+  
       dispatch(ShowLoading());
       const response = await DeleteCinema({ cinemaId: id });
       if (response.success) {
@@ -65,23 +71,28 @@ function CinemasList() {
       message.error(error.message);
     }
   };
+  
 
   const columns = [
     {
       title: "Name",
       dataIndex: "name",
+      key: "name", // Unique key for this column
     },
     {
       title: "Address",
       dataIndex: "address",
+      key: "address", // Unique key for this column
     },
     {
       title: "Phone",
       dataIndex: "phone",
+      key: "phone", // Unique key for this column
     },
     {
       title: "Email",
       dataIndex: "email",
+      key: "email", // Unique key for this column
     },
     {
       title: "Status",
@@ -93,6 +104,7 @@ function CinemasList() {
           return "Pending / Blocked";
         }
       },
+      key: "status", // Unique key for this column
     },
     {
       title: "Action",
@@ -101,13 +113,13 @@ function CinemasList() {
         return (
           <div className="flex gap-1 items-center">
             <i
-              className="ri-delete-bin-line"
+              className="ri-delete-bin-line cursor-pointer"
               onClick={() => {
                 handleDelete(record._id);
               }}
             ></i>
             <i
-              className="ri-pencil-line"
+              className="ri-pencil-line cursor-pointer"
               onClick={() => {
                 setFormType("edit");
                 setSelectedCinema(record);
@@ -129,6 +141,7 @@ function CinemasList() {
           </div>
         );
       },
+      key: "action", // Unique key for this column
     },
   ];
 
@@ -137,13 +150,16 @@ function CinemasList() {
   }, []);
   return (
     <div>
-      <div className="flex justify-end mb-1">
+      <div className="flex justify-end mb-1 ">
         <Button
           variant="outlined"
+          style={{ cursor: 'pointer' }}
+          className="cursor-pointer"
           title="Add Cinema"
           onClick={() => {
             setFormType("add");
             setShowCinemaFormModal(true);
+            className="cursor-pointer"
           }}
         />
       </div>

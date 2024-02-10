@@ -10,13 +10,13 @@ function Admin() {
       <PageTitle title="Admin" />
 
       <Tabs defaultActiveKey="1">
-        <Tabs.TabPane tab="Movies" key="1">
+        <items tab="Movies" key="1">
             <MoviesList />
-        </Tabs.TabPane>
+        </items>
 
-        <Tabs.TabPane tab="Cinemas" key="2">
+        <items tab="Cinemas" key="2">
             <CinemasList />
-        </Tabs.TabPane>
+        </items>
       </Tabs>
     </div>
   );

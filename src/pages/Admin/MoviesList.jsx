@@ -105,7 +105,7 @@ function MoviesList() {
         return (
           <div className="flex gap-1">
             <i
-              className="ri-delete-bin-line"
+              className="ri-delete-bin-line "
               onClick={() => {
                 handleDelete(record._id);
               }}

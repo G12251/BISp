@@ -9,29 +9,39 @@
 .w-full{
     width: 100%;
 }
-
-/* Text sizes */
-
-.text-xs{
-    font-size: 10px;
+.w-50{
+    width: 80%;
 }
 
-.text-sm{
+
+.text-sm {
     font-size: 14px;
 }
 
-.text-md{
+.text-md {
     font-size: 16px;
 }
 
-.text-lg{
+.text-lg {
     font-size: 18px;
 }
 
-.text-xl{
+.text-xl {
     font-size: 20px;
 }
 
-.border{
+.text-2xl {
+    font-size: 24px;
+}
+
+.text-3xl {
+    font-size: 30px;
+}
+
+.border {
     border-width: 1px;
+}
+
+.br-1 {
+    border-radius: 4px;
 }

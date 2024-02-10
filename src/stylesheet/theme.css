@@ -17,28 +17,37 @@
     background-color: black;
 }
 
-.text-primary{
-    color: var(--color-primary) !important;
+.bg-error{
+    background-color: #ff0000;
+}
+.bg-warning{
+    background-color: #cfa80c;
 }
 
-.text-secondary{
-    color: var(--color-secondary);
+
+.text-primary {
+    color: var(--colour-primary) !important;
+}
+
+.text-secondary {
+    color: var(--colour-secondary);
 }
 
 .text-black{
-    color:black;
+    color: #000;
 }
 
 .text-white{
-    color: white;
+    color: #fff;
 }
 
-.border-primary{
-    border-color: var(--color-primary);
-
+.border-primary {
+    border-color: var(--colour-primary);
 }
 
-.border-secondary{
-    border-color: var(--color-secondary);
+.border-secondary {
+    border-color: var(--colour-secondary);
 }
+
+
 

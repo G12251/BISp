@@ -10,12 +10,12 @@ function Profile() {
       <PageTitle title="Profile" />
 
       <Tabs defaultActiveKey="1">
-        <Tabs.TabPane tab="Bookings" key="1">
+        <items tab="Bookings" key="1">
           <Bookings />
-        </Tabs.TabPane>
-        <Tabs.TabPane tab="Cinemas" key="2">
+        </items>
+        <items tab="Cinemas" key="2">
           <CinemasList />
-        </Tabs.TabPane>
+        </items>
       </Tabs>
     </div>
   );
